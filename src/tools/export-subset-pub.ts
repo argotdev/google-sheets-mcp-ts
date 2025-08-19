@@ -12,7 +12,7 @@ const textOut = (text: string) => ({ content: [{ type: "text" as const, text }] 
 export function registerExportSubsetPub(server: McpServer): void {
   server.tool(
     "export_subset_pub",
-    "Export a filtered/select subset from a *published* sheet tab as CSV or JSON (returned inline).",
+    "Export a filtered/select subset from a *published* sheet tab as CSV or JSON (returned inline). Args: spreadsheet_url (published URL like https://docs.google.com/.../d/e/2PACX-.../pub?...).",
     {
       spreadsheet_url: z.string(),
       filters: z.array(z.object({ column: z.string(), op: z.string().optional(), value: z.any().optional() })).optional(),

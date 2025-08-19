@@ -6,7 +6,7 @@ import { parseSpreadsheetUrl } from "../lib/url-utils.js";
 const jsonOut = (data) => ({ content: [{ type: "text", text: JSON.stringify(data, null, 2) }] });
 const textOut = (text) => ({ content: [{ type: "text", text }] });
 export function registerListRowsPub(server) {
-    server.tool("list_rows_pub", "List rows from a *published* Google Sheet tab (no auth). Args: spreadsheet_url (full Google Sheets URL).", {
+    server.tool("list_rows_pub", "List rows from a *published* Google Sheet tab (no auth). Args: spreadsheet_url (published URL like https://docs.google.com/.../d/e/2PACX-.../pub?...).", {
         spreadsheet_url: z.string(),
         header_row: z.number().int().default(1),
         limit: z.number().int().default(100),

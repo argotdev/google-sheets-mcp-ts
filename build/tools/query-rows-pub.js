@@ -6,7 +6,7 @@ import { parseSpreadsheetUrl } from "../lib/url-utils.js";
 const jsonOut = (data) => ({ content: [{ type: "text", text: JSON.stringify(data, null, 2) }] });
 const textOut = (text) => ({ content: [{ type: "text", text }] });
 export function registerQueryRowsPub(server) {
-    server.tool("query_rows_pub", "Query rows (filters/select/sort/paging) from a *published* sheet tab (no auth).", {
+    server.tool("query_rows_pub", "Query rows (filters/select/sort/paging) from a *published* sheet tab (no auth). Args: spreadsheet_url (published URL like https://docs.google.com/.../d/e/2PACX-.../pub?...).", {
         spreadsheet_url: z.string(),
         filters: z.array(z.object({ column: z.string(), op: z.string().optional(), value: z.any().optional() })).optional(),
         select: z.array(z.string()).optional(),

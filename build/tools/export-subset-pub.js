@@ -6,7 +6,7 @@ import { parseSpreadsheetUrl } from "../lib/url-utils.js";
 const jsonOut = (data) => ({ content: [{ type: "text", text: JSON.stringify(data, null, 2) }] });
 const textOut = (text) => ({ content: [{ type: "text", text }] });
 export function registerExportSubsetPub(server) {
-    server.tool("export_subset_pub", "Export a filtered/select subset from a *published* sheet tab as CSV or JSON (returned inline).", {
+    server.tool("export_subset_pub", "Export a filtered/select subset from a *published* sheet tab as CSV or JSON (returned inline). Args: spreadsheet_url (published URL like https://docs.google.com/.../d/e/2PACX-.../pub?...).", {
         spreadsheet_url: z.string(),
         filters: z.array(z.object({ column: z.string(), op: z.string().optional(), value: z.any().optional() })).optional(),
         select: z.array(z.string()).optional(),

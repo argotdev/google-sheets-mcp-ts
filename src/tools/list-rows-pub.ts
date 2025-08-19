@@ -11,7 +11,7 @@ const textOut = (text: string) => ({ content: [{ type: "text" as const, text }] 
 export function registerListRowsPub(server: McpServer): void {
   server.tool(
     "list_rows_pub",
-    "List rows from a *published* Google Sheet tab (no auth). Args: spreadsheet_url (full Google Sheets URL).",
+    "List rows from a *published* Google Sheet tab (no auth). Args: spreadsheet_url (published URL like https://docs.google.com/.../d/e/2PACX-.../pub?...).",
     {
       spreadsheet_url: z.string(),
       header_row: z.number().int().default(1),
